@@ -1,0 +1,19 @@
+{
+  "name": "htmllint-plugin-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debitoor/htmllint-plugin-website.git"
+  },
+  "author": "Jonatan Pedersen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/debitoor/htmllint-plugin-website/issues"
+  },
+  "homepage": "https://github.com/debitoor/htmllint-plugin-website#readme"
+}
