@@ -13,7 +13,7 @@ import htmllintPluginWebsite from 'htmllint-plugin-website';
 
 htmllint.use(htmllintPluginWebsite());
 
-htmllint('<html></html>', {
+htmllint('<html><body><img src="/foo/bar.JPG"/></body></html>', {
 	'img-src-absolute-path-lowercase': true
 });
 ```
