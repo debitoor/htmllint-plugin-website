@@ -3,21 +3,18 @@ var fs = require('fs'),
 	lodash = require('lodash'),
 	htmllint = require('htmllint/lib'),
 	presets = require('htmllint/lib/presets');
-	plugin = require('../../');
+	plugin = require('../');
 	expect = require('chai').expect;
 
 // find all files in this directory that are .js files
-var testFiles = fs.readdirSync(__dirname)
-	.filter(function (filepath) {
-		return (path.extname(filepath) === '.js' &&
-				path.basename(filepath) !== 'runner.spec.js');
-	})
+var testFiles = fs.readdirSync(path.join(__dirname, 'rules'))
+	.filter(filepath => path.extname(filepath) === '.js')
 	.map(function (filepath) {
 		var basename = path.basename(filepath, '.js');
 
 		return {
 			name: basename,
-			mod: require('./' + basename)
+			mod: require('./rules/' + basename)
 		};
 	});
 
