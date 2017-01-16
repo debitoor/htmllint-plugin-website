@@ -21,7 +21,7 @@ module.exports.lint = function (element, options) {
 	if (unique) {
 		if (alts[alt]) {
 			if (alts[alt] !== src) {
-				return [new Issue('unique', element.openLineCol, {})];
+				return [new Issue('unique', element.openLineCol, {alt, src})];
 			} 
 		} else {
 			alts[alt] = src;
