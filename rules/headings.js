@@ -21,7 +21,7 @@ module.exports.lint = function (element, options) {
 	if (this.headings.h1 > 1) {
 		issues.push(new Issue('more-than-one-h1', element.openLineCol, {}));
 	}
-	console.log(element);
+
 	if (element.parent.name === 'p') {
 		issues.push(new Issue('in-p', element.openLineCol, {}));
 	}
