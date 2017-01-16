@@ -8,8 +8,6 @@ module.exports = {
 };
 
 module.exports.end = function () {
-	console.log(this.headings);
-
 	this.headings = createHeadings();
 };
 
