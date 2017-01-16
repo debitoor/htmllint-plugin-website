@@ -1,4 +1,6 @@
 const Issue = require('htmllint/lib/issue');
+const htmlEntities = require('html-entities');
+const entities = new htmlEntities.AllHtmlEntities();	
 
 module.exports = {
 	name: 'head-meta-description',
@@ -30,11 +32,15 @@ module.exports.lint = function (element, options) {
 	metaDescriptionElements.forEach(metaDescriptionElement => {
 		let metaDescription = metaDescriptionElement.attribs.content && metaDescriptionElement.attribs.content.value;
 
-		if (minLength && (!metaDescription || (metaDescription && metaDescription.length < minLength))) {
+		if (metaDescription) {
+			metaDescription = entities.decode(metaDescription);
+		}
+
+		if (minLength && (!metaDescription || metaDescription.length < minLength)) {
 			issues.push(new Issue('min-length', metaDescriptionElement.openLineCol, {minLength}));
 		}
 
-		if (maxLength && (!metaDescription || (metaDescription && metaDescription.length > maxLength))) {
+		if (maxLength && metaDescription && metaDescription.length > maxLength) {
 			issues.push(new Issue('max-length', metaDescriptionElement.openLineCol, {maxLength}));
 		}
 	});
