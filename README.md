@@ -20,6 +20,20 @@ htmllint('<html></html>', {
 
 ## Rules
 
+### a-href-absolute-path
+
+#### a-href-absolute-path-no-trailing-slash
+Checks that the a href absolute path does not have a trailing slash.
+
+``` javascript
+htmllint('<html></html>', {
+	'img-src-absolute-path-no-trailing-slash': true
+});
+```
+
+default: `false`;
+
+
 ### head-link-canonical
 
 #### head-link-canonical-absolute
@@ -100,8 +114,19 @@ htmllint('<html></html>', {
 
 default: `false`;
 
-### img-src-absolute-path-known
-Checks that the img src absolute path is known using the provided function.
+### img-src-absolute-path
+Checks that img src an absolute path.
+
+``` javascript
+htmllint('<html></html>', {
+	'img-src-absolute-path': true
+});
+```
+
+default: `false`;
+
+#### img-src-absolute-path-is-known
+Checks that img src absolute path is known using the provided function.
 
 ``` javascript
 const knownUrls = new Set(['https://foo.bar/baz/qux']);
@@ -113,7 +138,7 @@ htmllint('<html></html>', {
 
 default: `false`;
 
-### img-src-absolute-path-lowercase
+#### img-src-absolute-path-lowercase
 Checks that img src absolute path is lowercase.
 
 ``` javascript
@@ -124,16 +149,6 @@ htmllint('<html></html>', {
 
 default: `false`;
 
-### img-src-absolute-path-no-trailing-slash
-Checks that the img src absolute path does not have a trailing slash.
-
-``` javascript
-htmllint('<html></html>', {
-	'img-src-absolute-path-no-trailing-slash': true
-});
-```
-
-default: `false`;
 
 ## License
 MIT License
