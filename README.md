@@ -14,9 +14,126 @@ import htmllintPluginWebsite from 'htmllint-plugin-website';
 htmllint.use(htmllintPluginWebsite());
 
 htmllint('<html></html>', {
-	'website:no-dead-links': true
+	'img-src-absolute-path-lowercase': true
 });
 ```
+
+## Rules
+
+### head-link-canonical
+
+#### head-link-canonical-absolute
+Checks that head link canonical href is an absolute url.
+
+``` javascript
+htmllint('<html></html>', {
+	'head-link-canonical-absolute': true
+});
+```
+
+default: `false`;
+
+#### head-link-canonical-https
+Checks that head link canonical href protocol is https.
+
+``` javascript
+htmllint('<html></html>', {
+	'head-link-canonical-https': true
+});
+```
+
+default: `false`;
+
+#### head-link-canonical-lowercase
+Checks that head link canonical href is lowercase.
+
+``` javascript
+htmllint('<html></html>', {
+	'head-link-canonical-lowercase': true
+});
+```
+
+default: `false`;
+
+#### head-link-canonical-required
+Checks that head link canonical exists.
+
+``` javascript
+htmllint('<html></html>', {
+	'head-link-canonical-lowercase': true
+});
+```
+
+default: `false`;
+
+### head-meta-description
+#### head-meta-description-min-length
+Checks that head meta description is at least the provided min length.
+
+``` javascript
+htmllint('<html></html>', {
+	'head-meta-description-min-length': 70
+});
+```
+
+default: `false`;
+
+#### head-meta-description-max-length
+Checks that head meta description is at most the provided max length.
+
+``` javascript
+htmllint('<html></html>', {
+	'head-meta-description-max-length': 170
+});
+```
+
+default: `false`;
+
+#### head-meta-description-required
+Checks that head meta description exists.
+
+``` javascript
+htmllint('<html></html>', {
+	'head-meta-description-required': true
+});
+```
+
+default: `false`;
+
+### img-src-absolute-path-known
+Checks that the img src absolute path is known using the provided function.
+
+``` javascript
+const knownUrls = new Set(['https://foo.bar/baz/qux']);
+
+htmllint('<html></html>', {
+	'img-src-absolute-path-is-known': (src) => knownUrls.has(src)
+});
+```
+
+default: `false`;
+
+### img-src-absolute-path-lowercase
+Checks that img src absolute path is lowercase.
+
+``` javascript
+htmllint('<html></html>', {
+	'img-src-absolute-path-lowercase': true
+});
+```
+
+default: `false`;
+
+### img-src-absolute-path-no-trailing-slash
+Checks that the img src absolute path does not have a trailing slash.
+
+``` javascript
+htmllint('<html></html>', {
+	'img-src-absolute-path-no-trailing-slash': true
+});
+```
+
+default: `false`;
 
 ## License
 MIT License
