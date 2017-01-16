@@ -17,5 +17,5 @@ module.exports.lint = function (element, options) {
 		issues.push(new Issue('absolute-path', element.openLineCol, {}));
 	}
 
-	return isues;
+	return issues;
 };

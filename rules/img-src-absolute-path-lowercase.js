@@ -17,5 +17,5 @@ module.exports.lint = function (element, options) {
 		issues.push(new Issue('lowercase', element.openLineCol, {}));
 	}
 
-	return isues;
+	return issues;
 };

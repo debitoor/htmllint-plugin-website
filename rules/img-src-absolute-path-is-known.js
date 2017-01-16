@@ -13,9 +13,9 @@ module.exports.lint = function (element, options) {
 	const src = element.attribs.src && element.attribs.src.value;
 	const isKnown = options['img-src-absolute-path-is-known'];
 	
-	if (isAbsolutePath(src) && isKnown(src)) {
+	if (isAbsolutePath(src) && isKnown && !isKnown(src)) {
 		issues.push(new Issue('is-known', element.openLineCol, {}));
 	}
 
-	return isues;
+	return issues;
 };
