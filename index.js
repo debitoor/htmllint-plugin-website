@@ -4,6 +4,8 @@ module.exports = {
 		require('./rules/head-link-canonical'),
 		require('./rules/head-meta-description'),
 		require('./rules/head-title'),
+		require('./rules/headings'),
+		require('./rules/img-alt-unique'),
 		require('./rules/img-src-absolute-path'),
 		require('./rules/img-src-absolute-path-is-known'),
 		require('./rules/img-src-absolute-path-lowercase.js')
