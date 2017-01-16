@@ -60,7 +60,7 @@ Checks that head link canonical exists.
 
 ``` javascript
 htmllint('<html></html>', {
-	'head-link-canonical-lowercase': true
+	'head-link-canonical-required': true
 });
 ```
 
