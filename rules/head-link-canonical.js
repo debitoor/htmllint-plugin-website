@@ -28,23 +28,23 @@ module.exports.lint = function (element, options) {
 	}
 
 	linkCanonicalElements.forEach(linkCanonicalElement => {
-		let linkCanonicalElementHrefAttributeValue = linkCanonicalElement.attribs.href && linkCanonicalElement.attribs.href.value;
+		let href = linkCanonicalElement.attribs.href && linkCanonicalElement.attribs.href.value;
 
-		if (required && !linkCanonicalElementHrefAttributeValue) {
+		if (required && !href) {
 			issues.push(new Issue('required', linkCanonicalElement.openLineCol, {}));
 		}
 		
-		if (linkCanonicalElementHrefAttributeValue) {
-			if (absolute && !isAbsoluteUrl(linkCanonicalElementHrefAttributeValue)) {
-				issues.push(new Issue('absolute', linkCanonicalElement.openLineCol, {}));
+		if (href) {
+			if (absolute && !isAbsoluteUrl(href)) {
+				issues.push(new Issue('absolute', linkCanonicalElement.openLineCol, {href}));
 			}
 
-			if (https && !isHttpsUrl(linkCanonicalElementHrefAttributeValue)) {
-				issues.push(new Issue('https', linkCanonicalElement.openLineCol, {}));
+			if (https && !isHttpsUrl(href)) {
+				issues.push(new Issue('https', linkCanonicalElement.openLineCol, {href}));
 			}
 
-			if (lowercase && !isLowerCase(linkCanonicalElementHrefAttributeValue)) {
-				issues.push(new Issue('lowercase', linkCanonicalElement.openLineCol, {}));
+			if (lowercase && !isLowerCase(href)) {
+				issues.push(new Issue('lowercase', linkCanonicalElement.openLineCol, {href}));
 			}
 		}
 	});

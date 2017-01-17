@@ -14,7 +14,7 @@ module.exports.lint = function (element, options) {
 	const isKnownFunc = options['a-href-absolute-path-is-known'];
 	
 	if (isKnownFunc && isAbsolutePath(href) && !isKnownFunc(href)) {
-		issues.push(new Issue('should-be-known', element.openLineCol, {}));
+		issues.push(new Issue('should-be-known', element.openLineCol, {href}));
 	}
 
 	return issues;

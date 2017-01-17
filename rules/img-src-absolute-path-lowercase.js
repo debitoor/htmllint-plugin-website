@@ -14,7 +14,7 @@ module.exports.lint = function (element, options) {
 	const lowercase = options['img-src-absolute-path-lowercase'];
 	
 	if (lowercase && isAbsolutePath(src) && !isLowerCase(src)) {
-		issues.push(new Issue('lowercase', element.openLineCol, {}));
+		issues.push(new Issue('lowercase', element.openLineCol, {src}));
 	}
 
 	return issues;

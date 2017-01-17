@@ -14,7 +14,7 @@ module.exports.lint = function (element, options) {
 	const noTrailingSlash = options['a-href-absolute-path-no-trailing-slash'];
 	
 	if (noTrailingSlash && isAbsolutePath(href) && hasTrailingSlashInUrlPath(href)) {
-		issues.push(new Issue('no-trailing-slash', element.openLineCol, {}));
+		issues.push(new Issue('no-trailing-slash', element.openLineCol, {href}));
 	}
 
 	return issues;

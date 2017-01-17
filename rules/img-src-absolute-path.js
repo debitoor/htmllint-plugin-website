@@ -14,7 +14,7 @@ module.exports.lint = function (element, options) {
 	const absolutePath = options['img-src-absolute-path'];
 	
 	if (absolutePath && !isAbsolutePath(src)) {
-		issues.push(new Issue('absolute-path', element.openLineCol, {}));
+		issues.push(new Issue('absolute-path', element.openLineCol, {src}));
 	}
 
 	return issues;

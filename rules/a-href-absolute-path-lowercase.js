@@ -14,7 +14,7 @@ module.exports.lint = function (element, options) {
 	const shouldBeLowerCase = options['a-href-absolute-path-lowercase'];
 	
 	if (shouldBeLowerCase && isAbsolutePath(href) && !isLowerCase(href)) {
-		issues.push(new Issue('lowercase', element.openLineCol, {}));
+		issues.push(new Issue('lowercase', element.openLineCol, {href}));
 	}
 
 	return issues;
