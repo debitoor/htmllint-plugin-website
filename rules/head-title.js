@@ -15,6 +15,10 @@ module.exports.lint = function (element, options) {
 	const minLength = options['head-title-min-length'];
 	const maxLength = options['head-title-max-length'];
 
+	if (!required && !minLength && !maxLength) {
+		return issues;
+	}
+
 	var titleElements = element.children.filter((childElement) => {
 		return childElement.type === 'tag' 
 			&& childElement.name === 'title';

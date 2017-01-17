@@ -8,7 +8,15 @@ module.exports = {
 };
 
 module.exports.end = function () {
+	var issues = [];
+
+	if (this.headings.h1 + this.headings.h2 + this.headings.h3 === 0) {
+		issues.push(new Issue('at-least-one-h1-or-h2-or-h3', {}, {}));
+	}
+
 	this.headings = createHeadings();
+
+	return issues;
 };
 
 module.exports.lint = function (element, options) {

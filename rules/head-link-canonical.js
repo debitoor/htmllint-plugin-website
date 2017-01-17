@@ -16,9 +16,9 @@ module.exports.lint = function (element, options) {
 	const required = options['head-link-canonical-required'];
 		
 	var linkCanonicalElements = element.children.filter((childElement) => {
-		return childElement.type === 'tag' 
-			&& childElement.name === 'link' 
-			&& childElement.attribs 
+		return childElement.type === 'tag'
+			&& childElement.name === 'link'
+			&& childElement.attribs
 			&& childElement.attribs.rel
 			&& childElement.attribs.rel.value === 'canonical';
 	});
@@ -29,6 +29,10 @@ module.exports.lint = function (element, options) {
 
 	linkCanonicalElements.forEach(linkCanonicalElement => {
 		let linkCanonicalElementHrefAttributeValue = linkCanonicalElement.attribs.href && linkCanonicalElement.attribs.href.value;
+
+		if (required && !linkCanonicalElementHrefAttributeValue) {
+			issues.push(new Issue('required', linkCanonicalElement.openLineCol, {}));
+		}
 		
 		if (linkCanonicalElementHrefAttributeValue) {
 			if (absolute && !isAbsoluteUrl(linkCanonicalElementHrefAttributeValue)) {

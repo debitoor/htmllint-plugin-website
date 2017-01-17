@@ -13,8 +13,13 @@ module.exports.end = function () {
 
 module.exports.lint = function (element, options) {
 	const unique = options['img-alt-unique'];
+	const allowEmpty = unique === 'allow-empty';
 	const src = element.attribs.src && element.attribs.src.value;
 	const alt = element.attribs.alt && element.attribs.alt.value;
+
+	if (allowEmpty && !alt) {
+		return [];
+	}
 
 	let alts = this.alts;
 

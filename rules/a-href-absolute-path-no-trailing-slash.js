@@ -1,19 +1,19 @@
 const Issue = require('htmllint/lib/issue');
-const {isAbsolutePath, hasTrailingSlash} = require('../utils');
+const {isAbsolutePath, hasTrailingSlashInUrlPath} = require('../utils');
 
 module.exports = {
 	name: 'a-href-absolute-path-no-trailing-slash',
 	on: ['tag'],
-	filter: ['img']
+	filter: ['a']
 };
 
 module.exports.lint = function (element, options) {
 	var issues = [];
 	
-	const src = element.attribs.src && element.attribs.src.value;
+	const href = element.attribs.href && element.attribs.href.value;
 	const noTrailingSlash = options['a-href-absolute-path-no-trailing-slash'];
 	
-	if (noTrailingSlash && isAbsolutePath(src) && hasTrailingSlash(src)) {
+	if (noTrailingSlash && isAbsolutePath(href) && hasTrailingSlashInUrlPath(href)) {
 		issues.push(new Issue('no-trailing-slash', element.openLineCol, {}));
 	}
 

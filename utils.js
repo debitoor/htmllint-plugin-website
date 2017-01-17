@@ -29,10 +29,6 @@ function isLowerCase (value) {
 	return value && value.toLowerCase() === value;
 }
 
-function isLowerCase (value) {
-	return value && value.toLowerCase() === value;
-}
-
 function hasTrailingSlashInUrlPath (value) {
 	let urlObj = url.parse(value);
 	
