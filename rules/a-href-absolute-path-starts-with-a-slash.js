@@ -12,12 +12,12 @@ module.exports.lint = function (element, options) {
 
 	const href = element.attribs.href && element.attribs.href.value;
 
-	const noStartingSlash = options['a-href-absolute-path-starts-with-a-slash'];
+	const noStartingSlashOpts = options['a-href-absolute-path-starts-with-a-slash'];
 	const linkIsInternal = isInternalLink(href);
 	const firstCharIsSlash = isFirstCharSlash(href);
 	const hrefIsMailLink = isMailtoLink(href);
 
-	if (noStartingSlash && linkIsInternal && !firstCharIsSlash && !hrefIsMailLink) {
+	if (noStartingSlashOpts && linkIsInternal && !firstCharIsSlash && !hrefIsMailLink) {
 		issues.push(new Issue('no-starting-slash-internal-link', element.openLineCol, {href}));
 	}
 
