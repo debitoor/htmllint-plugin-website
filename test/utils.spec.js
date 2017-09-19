@@ -1,4 +1,4 @@
-const {isAbsoluteUrl, isAbsolutePath, isEmpty, isHttpsUrl, isLowerCase, hasTrailingSlashInUrlPath} = require('../utils');
+const {isAbsoluteUrl, isAbsolutePath, isEmpty, isHttpsUrl, isLowerCase, hasTrailingSlashInUrlPath, isInternalLink, isMailtoLink, isFirstCharSlash} = require('../utils');
 const assert = require('assert');
 
 describe('utils', () => {
@@ -39,6 +39,25 @@ describe('utils', () => {
 		{ args: ['https://foo.bar/baz/qux/'], expected: true },
 		{ args: ['https://foo.bar/baz/qux/?quux=quuz'], expected: true },
 		{ args: ['https://foo.bar/baz/qux?quux=quuz'], expected: false }
+	]);
+	describeFunc(isInternalLink, [
+		{args: ['http://foo.bar'], expected: false},
+		{args: ['https://foo.bar'], expected: false},
+		{args: ['/foo/bar'], expected: true},
+		{args: ['foo/bar'], expected: true},
+		{args: ['mailto:foo@bar.com'], expected: true},
+	]);
+	describeFunc(isMailtoLink, [
+		{args: ['mailto:'], expected: true},
+		{args: ['mailto:foo@bar.com'], expected: true},
+		{args: ['/mailto:'], expected: false},
+		{args: ['mail:foo@bar.com'], expected: false},
+	]);
+	describeFunc(isFirstCharSlash, [
+		{args: ['/foo-bar'], expected: true},
+		{args: ['foo-bar'], expected: false},
+		{args: ['foo/bar'], expected: false},
+		{args: ['/foo/bar'], expected: true},
 	]);
 });
 

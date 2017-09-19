@@ -3,6 +3,7 @@ module.exports = {
 		require('./rules/a-href-absolute-path-is-known'),
 		require('./rules/a-href-absolute-path-lowercase'),
 		require('./rules/a-href-absolute-path-no-trailing-slash'),
+		require('./rules/a-href-absolute-path-starts-with-a-slash'),
 		require('./rules/head-link-canonical'),
 		require('./rules/head-meta-description'),
 		require('./rules/head-title'),

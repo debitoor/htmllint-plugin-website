@@ -6,7 +6,10 @@ module.exports = {
 	isEmpty,
 	isHttpsUrl,
 	isLowerCase,
-	hasTrailingSlashInUrlPath
+	hasTrailingSlashInUrlPath,
+	isInternalLink,
+	isMailtoLink,
+	isFirstCharSlash
 };
 
 function isAbsolutePath (value) {
@@ -31,10 +34,23 @@ function isLowerCase (value) {
 
 function hasTrailingSlashInUrlPath (value) {
 	let urlObj = url.parse(value);
-	
+
 	if (urlObj.pathname.length === 1) {
 		return false;
 	}
 
 	return urlObj.pathname.endsWith('/');
+}
+
+function isInternalLink (value) {
+	let externalLinkRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+	return value && !externalLinkRegex.test(value);
+}
+
+function isMailtoLink (value) {
+	return value && /^mailto:/g.test(value);
+}
+
+function isFirstCharSlash (value) {
+	return value && /^\//g.test(value);
 }
