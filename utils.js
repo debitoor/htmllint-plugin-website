@@ -12,27 +12,27 @@ module.exports = {
 	isFirstCharSlash
 };
 
-function isAbsolutePath(value) {
+function isAbsolutePath (value) {
 	return value && /^\/[^\/]/g.test(value);
 }
 
-function isAbsoluteUrl(value) {
+function isAbsoluteUrl (value) {
 	return value && /^(?:https?:)?\/\//g.test(value);
 }
 
-function isHttpsUrl(value) {
+function isHttpsUrl (value) {
 	return value && /^https:\/\//g.test(value);
 }
 
-function isEmpty(array) {
+function isEmpty (array) {
 	return array && array.length === 0;
 }
 
-function isLowerCase(value) {
+function isLowerCase (value) {
 	return value && value.toLowerCase() === value;
 }
 
-function hasTrailingSlashInUrlPath(value) {
+function hasTrailingSlashInUrlPath (value) {
 	let urlObj = url.parse(value);
 
 	if (urlObj.pathname.length === 1) {
@@ -42,7 +42,7 @@ function hasTrailingSlashInUrlPath(value) {
 	return urlObj.pathname.endsWith('/');
 }
 
-function isInternalLink(value) {
+function isInternalLink (value) {
 	let externalLinkRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
 	return value && !externalLinkRegex.test(value);
 }
