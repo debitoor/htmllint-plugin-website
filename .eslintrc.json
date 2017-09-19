@@ -1,10 +1,4 @@
 
 {
-	"extends": "@debitoor/eslint-config-debitoor",
-	"globals": {
-		"window": true,
-		"document": true,
-		"dataLayer": true,
-		"ga": true
-	}
+	"extends": "@debitoor/eslint-config-debitoor"
 }
