@@ -7,7 +7,9 @@ module.exports = {
 	isHttpsUrl,
 	isLowerCase,
 	hasTrailingSlashInUrlPath,
-	isInternalLink
+	isInternalLink,
+	isMailtoLink,
+	isFirstCharSlash
 };
 
 function isAbsolutePath(value) {
@@ -42,9 +44,13 @@ function hasTrailingSlashInUrlPath(value) {
 
 function isInternalLink(value) {
 	let externalLinkRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+	return value && !externalLinkRegex.test(value);
+}
 
-	if (externalLinkRegex.test(value)) {
-		return false;
-	}
-	return true;
+function isMailtoLink (value) {
+	return value && /^mailto:/g.test(value);
+}
+
+function isFirstCharSlash (value) {
+	return value && /^\//g.test(value);
 }
