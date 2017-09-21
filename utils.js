@@ -56,6 +56,7 @@ function isFirstCharSlash (value) {
 	return value && /^\//g.test(value);
 }
 
-function isHrefInternAnchor (value) {
-	return value && /^#-/g.test(value);
+function isHrefAnchorLink (value) {
+	let anchorLinkRegex =  /^#[A-Za-z\-]+[\w\-]*$/g;
+	return value && anchorLinkRegex.test(value);
 }

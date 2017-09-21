@@ -64,7 +64,10 @@ describe('utils', () => {
 		{args: ['#-foo-bar'], expected: true},
 		{args: ['/foo/bar'], expected: false},
 		{args: ['-foo/bar'], expected: false},
-		{args: ['#foo-bar'], expected: false},
+		{args: ['#foo-bar'], expected: true},
+		{args: ['#foo_bar'], expected: true},
+		{args: ['#foo.bar'], expected: false},
+		{args: ['#foo!bar'], expected: false}
 	]);
 });
 
