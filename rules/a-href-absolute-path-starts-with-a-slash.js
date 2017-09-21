@@ -16,9 +16,9 @@ module.exports.lint = function (element, options) {
 	const linkIsInternal = isInternalLink(href);
 	const firstCharIsSlash = isFirstCharSlash(href);
 	const hrefIsMailLink = isMailtoLink(href);
-	const linkIsAnchor = isHrefInternAnchor(href);
+	const hrefIsAnchor = isHrefInternAnchor(href);
 
-	if (noStartingSlashOpts && linkIsInternal && !firstCharIsSlash && !hrefIsMailLink && !linkIsAnchor) {
+	if (noStartingSlashOpts && linkIsInternal && !firstCharIsSlash && !hrefIsMailLink && !hrefIsAnchor) {
 		issues.push(new Issue('no-starting-slash-internal-link', element.openLineCol, {href}));
 	}
 
