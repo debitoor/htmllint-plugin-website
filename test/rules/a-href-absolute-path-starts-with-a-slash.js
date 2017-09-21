@@ -28,5 +28,11 @@ module.exports = [
 		input: '<html><body><a href="mailto:foo@bar.com"/>link</a></body></html>',
 		opts: { 'a-href-absolute-path-starts-with-a-slash': true },
 		output: 0
+	},
+	{
+		desc: 'should have no issue when href is an anchor link',
+		input: '<html><body><a href="#-foo-bar"/>link</a></body></html>',
+		opts: { 'a-href-absolute-path-starts-with-a-slash': true },
+		output: 0
 	}
 ];
