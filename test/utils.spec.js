@@ -1,4 +1,4 @@
-const {isAbsoluteUrl, isAbsolutePath, isEmpty, isHttpsUrl, isLowerCase, hasTrailingSlashInUrlPath, isInternalLink, isMailtoLink, isFirstCharSlash, isHrefInternAnchor} = require('../utils');
+const {isAbsoluteUrl, isAbsolutePath, isEmpty, isHttpsUrl, isLowerCase, hasTrailingSlashInUrlPath, isInternalLink, isMailtoLink, isFirstCharSlash, isHrefAnchorLink} = require('../utils');
 const assert = require('assert');
 
 describe('utils', () => {
@@ -60,7 +60,7 @@ describe('utils', () => {
 		{args: ['/foo/bar'], expected: true},
 	]);
 
-	describeFunc(isHrefInternAnchor, [
+	describeFunc(isHrefAnchorLink, [
 		{args: ['#-foo-bar'], expected: true},
 		{args: ['/foo/bar'], expected: false},
 		{args: ['-foo/bar'], expected: false},

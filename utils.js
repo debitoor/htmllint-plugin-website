@@ -10,7 +10,7 @@ module.exports = {
 	isInternalLink,
 	isMailtoLink,
 	isFirstCharSlash,
-	isHrefInternAnchor
+	isHrefAnchorLink
 };
 
 function isAbsolutePath (value) {
