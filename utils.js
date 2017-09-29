@@ -9,7 +9,8 @@ module.exports = {
 	hasTrailingSlashInUrlPath,
 	isInternalLink,
 	isMailtoLink,
-	isFirstCharSlash
+	isFirstCharSlash,
+	absoluteUrlIsHost
 };
 
 function isAbsolutePath (value) {
@@ -53,4 +54,8 @@ function isMailtoLink (value) {
 
 function isFirstCharSlash (value) {
 	return value && /^\//g.test(value);
+}
+
+function absoluteUrlIsHost (regex, value) {
+	return value && regex.test(value);
 }
