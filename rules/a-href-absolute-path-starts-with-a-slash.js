@@ -1,5 +1,5 @@
 const Issue = require('htmllint/lib/issue');
-const { isInternalLink, isMailtoLink, isFirstCharSlash } = require('../utils.js');
+const { isInternalLink, isMailtoLink, isFirstCharSlash, isHrefAnchorLink } = require('../utils.js');
 
 module.exports = {
 	name: 'a-href-absolute-path-starts-with-a-slash',
@@ -17,8 +17,9 @@ module.exports.lint = function (element, options) {
 	const linkIsInternal = isInternalLink(href);
 	const firstCharIsSlash = isFirstCharSlash(href);
 	const hrefIsMailLink = isMailtoLink(href);
+	const hrefIsAnchor = isHrefAnchorLink(href);
 
-	if (noStartingSlashOpts && linkIsInternal && !firstCharIsSlash && !hrefIsMailLink) {
+	if (noStartingSlashOpts && linkIsInternal && !firstCharIsSlash && !hrefIsMailLink && !hrefIsAnchor) {
 		issues.push(new Issue('no-starting-slash-internal-link', element.openLineCol, {href}));
 	}
 
