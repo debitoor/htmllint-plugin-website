@@ -13,7 +13,7 @@ module.exports.lint = function (element, options) {
 	const href = element.attribs.href && element.attribs.href.value;
 	const internalLinkAbsolutePath = options['internal-link-should-be-absolute-path'];
 
-	if (internalLinkAbsolutePath && !isAbsolutePath(href) && internalLinkAbsolutePath(href)) {
+	if (internalLinkAbsolutePath && internalLinkAbsolutePath(href)) {
 		console.log('Pushing issue!');
 		issues.push(new Issue('internal-link-should-be-absolute-path', element.openLineCol, { href }));
 	}
