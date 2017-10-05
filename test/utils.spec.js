@@ -69,14 +69,6 @@ describe('utils', () => {
 		{ args: ['foo/bar'], expected: false },
 		{ args: ['/foo/bar'], expected: true },
 	]);
-
-	describeFunc(absoluteUrlIsHost, [
-		{ args: [new RegExp('^(https?:\/\/)?(www\.)?debitoor\.com'), 'https://debitoor.com'], expected: true},
-		{ args: [new RegExp('^(https?:\/\/)?(www\.)?debitoor\.com'), 'http://debitoor.com'], expected: true},
-		{ args: [new RegExp('^(https?:\/\/)?(www\.)?debitoor\.com'), 'www.debitoor.com'], expected: true},
-		{ args: [new RegExp('^(https?:\/\/)?(www\.)?debitoor\.com'), '/foo/bar'], expected: false}
-	]);
-
 });
 
 function describeFunc (func, tests) {
