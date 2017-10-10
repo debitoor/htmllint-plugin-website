@@ -11,6 +11,7 @@ module.exports = {
 		require('./rules/img-alt-unique'),
 		require('./rules/img-src-absolute-path'),
 		require('./rules/img-src-absolute-path-is-known'),
-		require('./rules/img-src-absolute-path-lowercase.js')
+		require('./rules/img-src-absolute-path-lowercase.js'),
+		require('./rules/internal-link-should-be-absolute-path'),
 	]
 }

@@ -12,6 +12,7 @@ module.exports.lint = function (element, options) {
 
 	const href = element.attribs.href && element.attribs.href.value;
 
+	
 	const noStartingSlashOpts = options['a-href-absolute-path-starts-with-a-slash'];
 	const linkIsInternal = isInternalLink(href);
 	const firstCharIsSlash = isFirstCharSlash(href);

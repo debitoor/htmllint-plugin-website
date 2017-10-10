@@ -41,23 +41,23 @@ describe('utils', () => {
 		{ args: ['https://foo.bar/baz/qux?quux=quuz'], expected: false }
 	]);
 	describeFunc(isInternalLink, [
-		{args: ['http://foo.bar'], expected: false},
-		{args: ['https://foo.bar'], expected: false},
-		{args: ['/foo/bar'], expected: true},
-		{args: ['foo/bar'], expected: true},
-		{args: ['mailto:foo@bar.com'], expected: true},
+		{ args: ['http://foo.bar'], expected: false },
+		{ args: ['https://foo.bar'], expected: false },
+		{ args: ['/foo/bar'], expected: true },
+		{ args: ['foo/bar'], expected: true },
+		{ args: ['mailto:foo@bar.com'], expected: true },
 	]);
 	describeFunc(isMailtoLink, [
-		{args: ['mailto:'], expected: true},
-		{args: ['mailto:foo@bar.com'], expected: true},
-		{args: ['/mailto:'], expected: false},
-		{args: ['mail:foo@bar.com'], expected: false},
+		{ args: ['mailto:'], expected: true },
+		{ args: ['mailto:foo@bar.com'], expected: true },
+		{ args: ['/mailto:'], expected: false },
+		{ args: ['mail:foo@bar.com'], expected: false },
 	]);
 	describeFunc(isFirstCharSlash, [
-		{args: ['/foo-bar'], expected: true},
-		{args: ['foo-bar'], expected: false},
-		{args: ['foo/bar'], expected: false},
-		{args: ['/foo/bar'], expected: true},
+		{ args: ['/foo-bar'], expected: true },
+		{ args: ['foo-bar'], expected: false },
+		{ args: ['foo/bar'], expected: false },
+		{ args: ['/foo/bar'], expected: true },
 	]);
 
 	describeFunc(isHrefAnchorLink, [
@@ -77,11 +77,11 @@ function describeFunc (func, tests) {
 			describe(JSON.stringify(test.args), () => {
 				let expected = test.expected;
 				let actual = func.apply(null, test.args);
-				
+
 				it(`should be ${expected}`, () => {
 					assert.equal(expected, actual);
 				});
 			});
-		});		
+		});
 	});
 }

@@ -9,10 +9,10 @@ module.exports = {
 
 module.exports.lint = function (element, options) {
 	var issues = [];
-	
+
 	const href = element.attribs.href && element.attribs.href.value;
 	const isKnownFunc = options['a-href-absolute-path-is-known'];
-	
+
 	if (isKnownFunc && isAbsolutePath(href) && !isKnownFunc(href)) {
 		issues.push(new Issue('should-be-known', element.openLineCol, {href}));
 	}
