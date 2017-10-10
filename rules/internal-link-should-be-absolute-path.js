@@ -1,5 +1,4 @@
 const Issue = require('htmllint/lib/issue');
-const { absoluteUrlIsHost, isAbsolutePath } = require('../utils');
 
 module.exports = {
 	name: 'internal-link-should-be-absolute-path',
@@ -18,4 +17,4 @@ module.exports.lint = function (element, options) {
 	}
 
 	return issues;
-}
+};
