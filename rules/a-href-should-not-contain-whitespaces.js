@@ -14,9 +14,9 @@ module.exports.lint = function (element, options) {
 
 	const href = element.attribs.href && element.attribs.href.value;
 
-	const noStartingSlashOpts = options['a-href-should-not-contain-whitespaces'];
+	const shouldNotContainWhitespaces = options['a-href-should-not-contain-whitespaces'];
 
-	if (noStartingSlashOpts && containsWhiteSpace(href)) {
+	if (shouldNotContainWhitespaces && containsWhiteSpace(href)) {
 		issues.push(new Issue('should-not-contain-whitespace', element.openLineCol, {
 			href
 		}));
