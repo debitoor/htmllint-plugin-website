@@ -1,4 +1,8 @@
 
 {
-	"extends": "@debitoor/eslint-config-debitoor"
+	"extends": "@debitoor/eslint-config-debitoor",
+	"globals":{
+		"describe": true,
+		"it": true
+	}
 }

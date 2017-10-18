@@ -36,9 +36,9 @@ module.exports = [
 		output: 0
 	},
 	{
-		desc: 'should have one issue when a href is not a properly formated anchor link',
-		input: '<html><body><a href="#foo.bar"/>link</a></body></html>',
+		desc: 'should have no issue when a href dont start with a slash',
+		input: '<html><body><a href=" https://www.gov.uk/vat-flat-rate-scheme/how-much-you-pay"/>link</a></body></html>',
 		opts: { 'a-href-absolute-path-starts-with-a-slash': true },
-		output: 1
+		output: 0
 	}
 ];

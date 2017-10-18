@@ -44,13 +44,13 @@ function hasTrailingSlashInUrlPath (value) {
 }
 
 function isInternalLink (value) {
-	let externalLinkRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+	let externalLinkRegex = new RegExp('(((https|http):\/\/[a-z]*.[a-z]*)|www.[a-z]*.[a-z]*)', 'i');
 	return value && !externalLinkRegex.test(value);
 }
 
 function isMailtoLink (value) {
 	return value && /^mailto:/g.test(value);
-}
+,
 
 function isFirstCharSlash (value) {
 	return value && /^\//g.test(value);
