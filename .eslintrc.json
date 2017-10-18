@@ -1,8 +1,7 @@
 
 {
 	"extends": "@debitoor/eslint-config-debitoor",
-	"globals":{
-		"describe": true,
-		"it": true
-	}
+	"plugins": [
+		"mocha"
+	]
 }

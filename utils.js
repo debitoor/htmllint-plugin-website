@@ -10,7 +10,8 @@ module.exports = {
 	isInternalLink,
 	isMailtoLink,
 	isFirstCharSlash,
-	isHrefAnchorLink
+	isHrefAnchorLink,
+	containsWhiteSpace
 };
 
 function isAbsolutePath (value) {
@@ -50,7 +51,7 @@ function isInternalLink (value) {
 
 function isMailtoLink (value) {
 	return value && /^mailto:/g.test(value);
-,
+}
 
 function isFirstCharSlash (value) {
 	return value && /^\//g.test(value);
@@ -59,4 +60,8 @@ function isFirstCharSlash (value) {
 function isHrefAnchorLink (value) {
 	let anchorLinkRegex =  /^#[A-Za-z\-]+[\w\-]*$/g;
 	return value && anchorLinkRegex.test(value);
+}
+
+function containsWhiteSpace (value) {
+	return value && /\s/.test(value);
 }

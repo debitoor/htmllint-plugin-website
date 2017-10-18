@@ -1,4 +1,15 @@
-const {isAbsoluteUrl, isAbsolutePath, isEmpty, isHttpsUrl, isLowerCase, hasTrailingSlashInUrlPath, isInternalLink, isMailtoLink, isFirstCharSlash, isHrefAnchorLink} = require('../utils');
+const {
+	isAbsoluteUrl,
+	isAbsolutePath,
+	isEmpty,
+	isHttpsUrl,
+	isLowerCase,
+	hasTrailingSlashInUrlPath,
+	isInternalLink,
+	isMailtoLink,
+	isFirstCharSlash, isHrefAnchorLink,
+	containsWhiteSpace
+} = require('../utils');
 const assert = require('assert');
 
 describe('utils', () => {
@@ -61,13 +72,23 @@ describe('utils', () => {
 	]);
 
 	describeFunc(isHrefAnchorLink, [
-		{args: ['#-foo-bar'], expected: true},
-		{args: ['/foo/bar'], expected: false},
-		{args: ['-foo/bar'], expected: false},
-		{args: ['#foo-bar'], expected: true},
-		{args: ['#foo_bar'], expected: true},
-		{args: ['#foo.bar'], expected: false},
-		{args: ['#foo!bar'], expected: false}
+		{ args: ['#-foo-bar'], expected: true },
+		{ args: ['/foo/bar'], expected: false },
+		{ args: ['-foo/bar'], expected: false },
+		{ args: ['#foo-bar'], expected: true },
+		{ args: ['#foo_bar'], expected: true },
+		{ args: ['#foo.bar'], expected: false },
+		{ args: ['#foo!bar'], expected: false }
+	]);
+
+	describeFunc(containsWhiteSpace, [
+		{ args: ['https://debitoor.com'], expected: false },
+		{ args: ['www.debitoor.com'], expected: false },
+		{ args: ['https://www.debitoor.com'], expected: false },
+		{ args: ['/foo/bar'], expected: false },
+		{ args: [' https://debitoor.com'], expected: true },
+		{ args: ['/foo /bar'], expected: true },
+		{ args: ['foo/bar '], expected: true }
 	]);
 });
 
