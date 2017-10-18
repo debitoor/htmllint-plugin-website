@@ -2,8 +2,8 @@ var fs = require('fs'),
 	path = require('path'),
 	lodash = require('lodash'),
 	htmllint = require('htmllint/lib'),
-	presets = require('htmllint/lib/presets');
-	plugin = require('../');
+	presets = require('htmllint/lib/presets'),
+	plugin = require('../'),
 	expect = require('chai').expect;
 
 // find all files in this directory that are .js files
