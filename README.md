@@ -22,21 +22,70 @@ htmllint('<html><body><img src="/foo/bar.JPG"/></body></html>', {
 
 ### a-href-absolute-path
 
-#### a-href-absolute-path-no-trailing-slash
-Checks that the a href absolute path does not have a trailing slash.
+#### #### a-href-absolute-path-is-known
 
-``` javascript
-htmllint('<html></html>', {
-	'img-src-absolute-path-no-trailing-slash': true
+Checks that a href absolute path is known
+
+```javascript
+	htmllint('<html></html>', {
+	'a-href-absolute-path-is-known': () => true
 });
 ```
 
 default: `false`;
 
+#### a-href-absolute-path-lowercase
+
+Checks that a href absolute path is lowercase
+
+``` javascript
+htmllint('<html></html>', {
+	'a-href-absolute-path-lowercase': true
+});
+```
+
+default: `false`;
+
+#### a-href-absolute-path-no-trailing-slash
+
+Checks that the a href absolute path does not have a trailing slash.
+
+``` javascript
+htmllint('<html></html>', {
+	'a-href-absolute-path-no-trailing-slash': true,
+});
+```
+
+default: `false`;
+
+#### a-href-absolute-path-starts-with-a-slash
+
+Chcecks that a href absolute path starts with a slash.
+
+``` javascript
+htmllint('<html></html>', {
+	'a-href-absolute-path-starts-with-a-slash': true
+});
+```
+
+default: `false`;
+
+### a-href-should
+
+#### a-href-should-not-contain-whitespaces
+
+Checks that a href does not contain any whitespaces
+
+``` javascript
+htmllint('<html></html>', {
+	'a-href-should-not-contain-whitespaces': true
+});
+```
 
 ### head-link-canonical
 
 #### head-link-canonical-absolute
+
 Checks that head link canonical href is an absolute url.
 
 ``` javascript
@@ -48,6 +97,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 #### head-link-canonical-https
+
 Checks that head link canonical href protocol is https.
 
 ``` javascript
@@ -59,6 +109,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 #### head-link-canonical-lowercase
+
 Checks that head link canonical href is lowercase.
 
 ``` javascript
@@ -70,6 +121,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 #### head-link-canonical-required
+
 Checks that head link canonical exists.
 
 ``` javascript
@@ -81,7 +133,9 @@ htmllint('<html></html>', {
 default: `false`;
 
 ### head-meta-description
+
 #### head-meta-description-min-length
+
 Checks that head meta description is at least the provided min length.
 
 ``` javascript
@@ -93,6 +147,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 #### head-meta-description-max-length
+
 Checks that head meta description is at most the provided max length.
 
 ``` javascript
@@ -104,6 +159,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 #### head-meta-description-required
+
 Checks that head meta description exists.
 
 ``` javascript
@@ -115,6 +171,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 ### img-src-absolute-path
+
 Checks that img src an absolute path.
 
 ``` javascript
@@ -126,6 +183,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 #### img-src-absolute-path-is-known
+
 Checks that img src absolute path is known using the provided function.
 
 ``` javascript
@@ -139,6 +197,7 @@ htmllint('<html></html>', {
 default: `false`;
 
 #### img-src-absolute-path-lowercase
+
 Checks that img src absolute path is lowercase.
 
 ``` javascript
@@ -149,8 +208,22 @@ htmllint('<html></html>', {
 
 default: `false`;
 
+### internal-link
+
+#### internal-link-should-be-absolute-path
+
+
+
+``` javascript
+htmllint('<html></html>', {
+	'internal-link-should-be-absolute-path': () => new RegExp().test()
+});
+```
+
+default: `false`;
 
 ## License
+
 MIT License
 
 Copyright (c) 2017 Debitoor
