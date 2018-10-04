@@ -11,7 +11,8 @@ module.exports = {
 	isMailtoLink,
 	isFirstCharSlash,
 	isHrefAnchorLink,
-	containsWhiteSpace
+	containsWhiteSpace,
+	isTelLink
 };
 
 function isAbsolutePath (value) {
@@ -51,6 +52,10 @@ function isInternalLink (value) {
 
 function isMailtoLink (value) {
 	return value && /^mailto:/g.test(value);
+}
+
+function isTelLink (value) {
+	return value && /^tel:/g.test(value);
 }
 
 function isFirstCharSlash (value) {
