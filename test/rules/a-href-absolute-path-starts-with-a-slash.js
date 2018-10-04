@@ -30,6 +30,12 @@ module.exports = [
 		output: 0
 	},
 	{
+		desc: 'should have no issue when a href is a tel link',
+		input: '<html><body><a href="tel:8888888"/>link</a></body></html>',
+		opts: { 'a-href-absolute-path-starts-with-a-slash': true },
+		output: 0
+	},
+	{
 		desc: 'should have no issue when a href is a properly formated anchor link',
 		input: '<html><body><a href="#foo-bar"/>link</a></body></html>',
 		opts: { 'a-href-absolute-path-starts-with-a-slash': true },
