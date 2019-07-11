@@ -1,6 +1,8 @@
 # htmllint-plugin-website
 Provides htmllint rules for website.
 
+This project has archived as it has been moved to [website-tools/htmllint-plugin-website](https://github.com/debitoor/website-tools/tree/master/packages/htmllint-plugin-website).
+
 ## Install
 ``` bash
 $ npm install git+ssh://git@github.com/debitoor/htmllint-plugin-website.git
